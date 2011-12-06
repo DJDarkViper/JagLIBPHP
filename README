@@ -1,0 +1,31 @@
+Added the fledgling classes to start, these will be worked on and constantly evolving over time. 
+
+
+Explanation:
+
+/classes/databasedriver.class.php
+This is a CodeIgniter inspired database class, utilizes method stringing to quickly create and mould SQL Queries together.
+This is still in ALPHA phase and should not be utilized in a production setting unless your comfortable fixing some bugs
+
+/classes/paypal.class.php
+An older class (one of my first ever real useful classes actually) that creates a PayPal Form based on information fed into it.
+Allows you to add items to the temporary "cart", and generate the form. Also includes code to automatically submit said form
+if you wish to totally customize the full experience.
+This is classified as STABLE but BETA, and will be completed rewritten soon to follow the same formula as its NVP counterpart. (below)
+
+/classes/paypalnvp.class.php
+A newer class of mine that utilizes the PayPal NVP API for real-time credit card transaction processing. Includes full
+error reporting, this is considered STABLE but still in BETA.
+
+/classes/form.class.php
+An older class of mine (newer than the older paypal class though) that allows you to build customized forms without HTML, but use PHP
+to generate the form fields. 
+This is in ALPHA and not production safe, and will be rewritten soon.
+
+/classes/email.class.php
+Allows you create emails and send to multiple accounts at once, including CC and BCC. I made this class a day after i finished the
+old paypal class, and desperately needs an update. But it is classified as STABLE and good to use (I've used it plenty of times)
+
+
+
+~K
