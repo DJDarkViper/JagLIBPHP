@@ -3,9 +3,7 @@ The Don't Be a Dick License
 _version 0.1_
 
 **Project:** [JagLIBPHP](https://github.com/DJDarkViper/JagLIBPHP) v0.1  
-**Author:** Kyle Harrison (<silenht.coyote1@gmail.com>)
-
-**Original Author of License** Stephen Eley (<sfeley@gmail.com>)
+**Author:** Kyle Harrison (<silent.coyote1@gmail.com>)
 
 This is a proposed draft of the **Don't Be a Dick** license for open source projects.  The purpose of this license is to permit the broadest feasible scope for reuse and modification of creative work, restricted only by the requirement that one is not a dick about it.
 
@@ -13,7 +11,7 @@ This is a proposed draft of the **Don't Be a Dick** license for open source proj
 -------------------
 For legal purposes, the DBAD license is a superset of the [Apache License, Version 2.0][1] and incorporates all terms, conditions, privileges and limitations therein.  The following text is a binding part of this license for this project:
 
-> Copyright 2011 Kyle Harrison
+> Copyright 2010 Stephen Eley
 
 > Licensed under the Apache License, Version 2.0 (the "License");
   you may not use this file except in compliance with the License.
