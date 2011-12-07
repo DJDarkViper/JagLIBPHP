@@ -3,7 +3,7 @@ The Don't Be a Dick License
 _version 0.1_
 
 **Project:** [JagLIBPHP](https://github.com/DJDarkViper/JagLIBPHP) v0.1  
-**Author:** Kyle Harrison (<silent.coyote1@gmail.com>)
+**Author:** Kyle Harrison (<silent.coyote1@gmail.com>) 
 
 This is a proposed draft of the **Don't Be a Dick** license for open source projects.  The purpose of this license is to permit the broadest feasible scope for reuse and modification of creative work, restricted only by the requirement that one is not a dick about it.
 
