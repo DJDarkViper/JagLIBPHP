@@ -1,4 +1,10 @@
 <?
+/**
+ * @author Kyle Harrison &lt;silent.coyote1@gmail.com&gt;
+ * @copyright Black Jaguar Studios 2011
+ * @package JagLIBPHP
+ * @license DBAD License 0.1: Commercial and Non-Commercial usage without explicit permission allowed, just say "thanks" if you get the opportunity :) 
+ */
 class EMail {
 	
 	private $ContentType;

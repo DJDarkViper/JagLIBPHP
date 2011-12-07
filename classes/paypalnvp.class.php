@@ -40,8 +40,10 @@ class PayPalNVP {
 	
 	/**
 	 * PayPal 3T NVP API Interface Class. Will automatically urlencode and cleanup provided information, and build the according strings and will even perform the cURL operation needed
-	 * @copyright Navigator Multimedia 2011
-	 * @author Kyle Harrison &lt;kyle@navigatormm.com&gt;
+	 * @author Kyle Harrison &lt;silent.coyote1@gmail.com&gt;
+	 * @copyright Black Jaguar Studios 2011
+	 * @package JagLIBPHP
+	 * @license DBAD License 0.1: Commercial and Non-Commercial usage without explicit permission allowed, just say "thanks" if you get the opportunity :)
 	 */
 	public function __construct($APIUsername = null, $APIPassword = null, $APISignature = null) {
 		$this->APICredentials 		= new stdClass();
