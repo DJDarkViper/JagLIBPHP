@@ -23,8 +23,10 @@ class DatabaseDriver {
 
 	public $query;
 	public $results;
+	public $rows;
+	public $affected_rows;
 	
-	
+	public $queries = array();
 	
 	public function __construct($engine = "mysql") {
 		$this->driver = $engine;
@@ -223,8 +225,15 @@ class DatabaseDriver {
 	// Executes the built query
 	public function exec() {
 		if($sql = @mysql_query($this->query)) {
-			$fetch = mysql_fetch_object($sql);
-			$this->results = $fetch;
+			$this->rows = mysql_num_rows($sql);
+			$this->affected_rows = mysql_affected_rows();
+			
+			while($r = mysql_fetch_object($sql)) {
+				$this->results[] = $r;
+			}
+			
+			$this->queries[] = $this->query;
+			$this->reset();
 			return $this;
 		} else {
 			die("<span style='color: red'>There was an error running your query:</span><br />". mysql_error());
@@ -245,11 +254,11 @@ class DatabaseDriver {
 	
 	// Returns all results
 	public function results() {
-		return $this->results();
+		return $this->results;
 	}
 	
 	// gets specific row index. if no number is provided gets the top result
-	public function result($row = null) {
+	public function result($row = 0) {
 		return $this->results[$row];
 	}
 	
@@ -311,28 +320,56 @@ class DatabaseDriver {
 	
 	// alias for flush()
 	public function reset() {
-		$this->flush();
+		$this->select = null;
+		$this->from = array();
+		$this->where = array();
+		$this->join = array();
+		$this->set = array();
+		$this->orderby = null;
+		$this->limit = null;
+		$this->active_row = 0;
+		$this->query = null;
+		
 		return $this;
+	}
+	
+	
+	// Ohter fun functions
+	
+	public function numrows() {
+		return $this->rows;
+	}
+	
+	public function count_queries() {
+		return count($this->queries);
+	} 
+	
+	public function get_query($index = 0) {
+		return $this->queries[$index];
+	}
+	
+	
+	public static function Connect($settings, $local_condition = ".dev") {
+		$env = ( ( preg_match( "/".str_replace('.', '\.', $local_condition."/"), $_SERVER['HTTP_HOST'] ) ) ? "local" : "live" );
+		$s = (object) $settings[$env];
+		mysql_connect($s->Host, $s->Username, $s->Password);
+		mysql_select_db($s->Database);
 	}
 	
 }
 
+DatabaseDriver::Connect(array(
+	"local"=>array(
+		"Host"=>"localhost",
+		"Username"=>"root",
+		"Password"=>"",
+		"Database"=>"db_name"
+	),
+	"live"=>array(
+		"Host"=>"localhost",
+		"Username"=>"root",
+		"Password"=>"",
+		"Database"=>"db_name"
+	)
+), ".dev");
 $db = new DatabaseDriver("mysql");
-
-
-
-
-/*
-Example of the moment: 
-
-// Inserting Data
-$db->insert("test", array(
-	"col1"=>"data1",
-        "col2"=>"data2"
-));
-$db->where("col1", "data2");
-$db->set("date_updated", "NOW()", false);
-$result = $db->run()->results();
-
-var_dump($db);
-*/
